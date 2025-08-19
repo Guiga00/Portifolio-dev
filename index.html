@@ -349,6 +349,17 @@
         <div class="glass-effect rounded-3xl p-8 relative overflow-hidden">
           <div class="grid md:grid-cols-2 gap-4 lg:gap-8 items-center">
             <div class="text-center md:text-left z-10">
+              <!-- Mobile-only Image -->
+              <div class="md:hidden w-48 h-48 mx-auto mb-8">
+                <img
+                  src="assets/preto e branco.png"
+                  alt="Foto do Guilherme Barros"
+                  class="w-full h-full object-cover rounded-[40%_60%_60%_40%] border-2 border-transparent transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-[0_0_20px_var(--color-primary)]"
+                  onerror="this.onerror=null;this.src='https://placehold.co/192x192/1a1a1a/eaeaea?text=GB';"
+                />
+              </div>
+
+              <!-- Text Content -->
               <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5">
                 Olá, meu nome é
                 <span class="purple-gradient-text">Guilherme Barros</span>
@@ -376,6 +387,7 @@
             <div class="hidden md:block"></div>
           </div>
 
+          <!-- Desktop-only Image -->
           <div
             class="hidden md:block absolute top-0 right-0 h-full w-1/2 lg:w-2/5"
           >
@@ -739,7 +751,7 @@
           padding: 1rem 2rem;
           font-size: 1rem;
           font-weight: 600;
-          color: var(--color-primary);
+          color: white;
           background: none;
           border: 2px solid var(--color-primary);
           border-radius: 8px;
@@ -953,7 +965,7 @@
           const ledPath = document.createElementNS(svgNS, "path");
           ledPath.setAttribute("d", pathData);
           ledPath.setAttribute("stroke", "var(--color-primary)");
-          ledPath.setAttribute("stroke-width", "5");
+          ledPath.setAttribute("stroke-width", "3");
           ledPath.setAttribute("fill", "none");
           ledPath.setAttribute("stroke-linecap", "round");
 
@@ -987,13 +999,13 @@
           }
 
           let startTime = null;
-          const duration = 5000; // Slower animation
-          const segmentLength = 800;
+          const duration = 15000; // Slower animation
+          const segmentLength = 150;
 
           function animate(timestamp) {
             if (!startTime) startTime = timestamp;
             const elapsed = timestamp - startTime;
-            const progress = (elapsed / duration) % 5;
+            const progress = (elapsed / duration) % 1;
 
             ledPath.setAttribute(
               "stroke-dasharray",
