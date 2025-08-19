@@ -117,32 +117,6 @@
         font-size: 48px; /* Equivalent to w-12 h-12 */
       }
 
-      /* START: Custom utility classes for theming */
-      .text-nav-link {
-        color: var(--color-nav-link);
-      }
-      .text-nav-icon {
-        color: var(--color-nav-icon);
-      }
-      .text-subtle {
-        color: var(--color-subtle-text);
-      }
-      .border-themed {
-        border-color: var(--color-glass-border);
-      }
-      .hover\:text-icon-hover:hover {
-        color: var(--color-icon-hover);
-      }
-
-      .btn-secondary {
-        background-color: var(--color-secondary-btn-bg);
-        color: var(--color-secondary-btn-text);
-      }
-      .btn-secondary:hover {
-        background-color: var(--color-secondary-btn-bg-hover);
-      }
-      /* END: Custom utility classes for theming */
-
       /* START: Utility classes for colors */
       .bg-primary {
         background-color: var(--color-primary);
@@ -261,12 +235,12 @@
         <div class="hidden md:flex space-x-8 items-center">
           <a
             href="#projects"
-            class="text-nav-link hover:text-primary transition-colors"
+            class="text-[var(--color-nav-link)] hover:text-primary transition-colors"
             >Projetos</a
           >
           <a
             href="#skills"
-            class="text-nav-link hover:text-primary transition-colors"
+            class="text-[var(--color-nav-link)] hover:text-primary transition-colors"
             >Habilidades</a
           >
           <a
@@ -277,7 +251,7 @@
           <!-- Theme Toggle Button -->
           <button
             id="theme-toggle"
-            class="text-nav-link hover:text-primary transition-colors"
+            class="text-[var(--color-nav-link)] hover:text-primary transition-colors"
           >
             <svg
               id="theme-icon-sun"
@@ -319,7 +293,10 @@
             </svg>
           </button>
         </div>
-        <button id="mobile-menu-button" class="md:hidden text-nav-icon">
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-[var(--color-nav-icon)]"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -345,22 +322,22 @@
       >
         <a
           href="#projects"
-          class="block text-nav-link hover:text-primary transition-colors p-4"
+          class="block text-[var(--color-nav-link)] hover:text-primary transition-colors p-4"
           >Projetos</a
         >
         <a
           href="#skills"
-          class="block text-nav-link hover:text-primary transition-colors p-4"
+          class="block text-[var(--color-nav-link)] hover:text-primary transition-colors p-4"
           >Habilidades</a
         >
         <a
           href="#about"
-          class="block text-nav-link hover:text-primary transition-colors p-4"
+          class="block text-[var(--color-nav-link)] hover:text-primary transition-colors p-4"
           >Sobre Mim</a
         >
         <a
           href="#contact"
-          class="block text-nav-link hover:text-primary transition-colors p-4"
+          class="block text-[var(--color-nav-link)] hover:text-primary transition-colors p-4"
           >Contato</a
         >
       </div>
@@ -377,7 +354,7 @@
                 <span class="purple-gradient-text">Guilherme Barros</span>
               </h1>
               <p
-                class="text-lg md:text-xl text-subtle max-w-xl mx-auto md:mx-0 mb-8"
+                class="text-lg md:text-xl text-[var(--color-subtle-text)] max-w-xl mx-auto md:mx-0 mb-8"
               >
                 Desenvolvedor de Software apaixonado por criar soluções
                 inovadoras e eficientes. Transformando ideias complexas em
@@ -391,7 +368,7 @@
                 >
                 <a
                   href="#contact"
-                  class="btn-secondary font-bold py-3 px-8 rounded-lg transition-transform hover:scale-105 transition-colors"
+                  class="bg-[var(--color-secondary-btn-bg)] hover:bg-[var(--color-secondary-btn-bg-hover)] text-[var(--color-secondary-btn-text)] font-bold py-3 px-8 rounded-lg transition-transform hover:scale-105 transition-colors"
                   >Fale Comigo</a
                 >
               </div>
@@ -402,9 +379,6 @@
           <div
             class="hidden md:block absolute top-0 right-0 h-full w-1/2 lg:w-2/5"
           >
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent"
-            ></div>
             <img
               src="assets/preto e branco.png"
               alt="Foto do Guilherme Barros"
@@ -419,37 +393,37 @@
       <!-- Technologies Section -->
       <section class="py-16">
         <h2
-          class="text-center text-sm font-semibold text-subtle uppercase tracking-wider mb-12"
+          class="text-center text-sm font-semibold text-[var(--color-subtle-text)] uppercase tracking-wider mb-12"
         >
           Tecnologias que domino
         </h2>
         <div class="flex flex-wrap justify-center items-start gap-12 md:gap-16">
           <div
-            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+            class="flex flex-col items-center gap-2 w-24 text-center text-[var(--color-subtle-text)] transition-colors duration-300 hover:text-primary cursor-default"
           >
             <ion-icon name="logo-javascript"></ion-icon>
             <p class="font-medium">JavaScript</p>
           </div>
           <div
-            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+            class="flex flex-col items-center gap-2 w-24 text-center text-[var(--color-subtle-text)] transition-colors duration-300 hover:text-primary cursor-default"
           >
             <ion-icon name="logo-react"></ion-icon>
             <p class="font-medium">React</p>
           </div>
           <div
-            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+            class="flex flex-col items-center gap-2 w-24 text-center text-[var(--color-subtle-text)] transition-colors duration-300 hover:text-primary cursor-default"
           >
             <ion-icon name="logo-nodejs"></ion-icon>
             <p class="font-medium">Node.js</p>
           </div>
           <div
-            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+            class="flex flex-col items-center gap-2 w-24 text-center text-[var(--color-subtle-text)] transition-colors duration-300 hover:text-primary cursor-default"
           >
             <ion-icon name="logo-python"></ion-icon>
             <p class="font-medium">Python</p>
           </div>
           <div
-            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+            class="flex flex-col items-center gap-2 w-24 text-center text-[var(--color-subtle-text)] transition-colors duration-300 hover:text-primary cursor-default"
           >
             <svg
               class="w-12 h-12"
@@ -465,7 +439,7 @@
             <p class="font-medium leading-tight">Tailwind<br />CSS</p>
           </div>
           <div
-            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+            class="flex flex-col items-center gap-2 w-24 text-center text-[var(--color-subtle-text)] transition-colors duration-300 hover:text-primary cursor-default"
           >
             <ion-icon name="logo-figma"></ion-icon>
             <p class="font-medium">Figma</p>
@@ -479,7 +453,7 @@
           <h2 class="text-4xl font-bold mb-2">
             Meus <span class="purple-gradient-text">Projetos</span>
           </h2>
-          <p class="text-subtle">
+          <p class="text-[var(--color-subtle-text)]">
             Uma seleção de projetos que demonstram minhas habilidades.
           </p>
         </div>
@@ -495,7 +469,7 @@
                 class="rounded-lg mb-4 w-full h-48 object-cover"
               />
               <h3 class="text-xl font-bold mb-2">Nome do Projeto 1</h3>
-              <p class="text-subtle text-sm mb-4">
+              <p class="text-[var(--color-subtle-text)] text-sm mb-4">
                 Breve descrição do projeto, as tecnologias utilizadas e o
                 objetivo principal. Mantenha-o conciso e informativo.
               </p>
@@ -508,7 +482,7 @@
               >
               <a
                 href="#"
-                class="text-subtle hover:text-icon-hover transition-colors"
+                class="text-[var(--color-subtle-text)] hover:text-[var(--color-icon-hover)] transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -541,7 +515,7 @@
                 class="rounded-lg mb-4 w-full h-48 object-cover"
               />
               <h3 class="text-xl font-bold mb-2">Nome do Projeto 2</h3>
-              <p class="text-subtle text-sm mb-4">
+              <p class="text-[var(--color-subtle-text)] text-sm mb-4">
                 Breve descrição do projeto, as tecnologias utilizadas e o
                 objetivo principal. Mantenha-o conciso e informativo.
               </p>
@@ -554,7 +528,7 @@
               >
               <a
                 href="#"
-                class="text-subtle hover:text-icon-hover transition-colors"
+                class="text-[var(--color-subtle-text)] hover:text-[var(--color-icon-hover)] transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -587,7 +561,7 @@
                 class="rounded-lg mb-4 w-full h-48 object-cover"
               />
               <h3 class="text-xl font-bold mb-2">Nome do Projeto 3</h3>
-              <p class="text-subtle text-sm mb-4">
+              <p class="text-[var(--color-subtle-text)] text-sm mb-4">
                 Breve descrição do projeto, as tecnologias utilizadas e o
                 objetivo principal. Mantenha-o conciso e informativo.
               </p>
@@ -600,7 +574,7 @@
               >
               <a
                 href="#"
-                class="text-subtle hover:text-icon-hover transition-colors"
+                class="text-[var(--color-subtle-text)] hover:text-[var(--color-icon-hover)] transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -631,7 +605,7 @@
           <h2 class="text-4xl font-bold mb-2">
             Minhas <span class="purple-gradient-text">Habilidades</span>
           </h2>
-          <p class="text-subtle">
+          <p class="text-[var(--color-subtle-text)]">
             As ferramentas e tecnologias que utilizo para construir minhas
             soluções.
           </p>
@@ -748,7 +722,7 @@
           <h2 class="text-3xl md:text-4xl font-bold mb-4">
             Vamos Construir Algo Incrível Juntos
           </h2>
-          <p class="text-subtle max-w-2xl mx-auto mb-8">
+          <p class="text-[var(--color-subtle-text)] max-w-2xl mx-auto mb-8">
             Estou sempre aberto a novas oportunidades e colaborações. Se você
             tem uma ideia ou um projeto em mente, vamos conversar!
           </p>
@@ -784,21 +758,24 @@
         .liquid:hover {
           --p: 100%;
           --t: 0.3s;
-          color: var(--color-text);
+          color: #fff;
         }
       </style>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-themed mt-20">
+    <footer class="border-t border-[var(--color-glass-border)] mt-20">
       <div
         class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left"
       >
-        <p class="text-subtle mb-4 md:mb-0">
+        <p class="text-[var(--color-subtle-text)] mb-4 md:mb-0">
           &copy; 2024 Guilherme Barros. Todos os direitos reservados.
         </p>
         <div class="flex space-x-6">
-          <a href="#" class="text-subtle hover:text-primary transition-colors">
+          <a
+            href="#"
+            class="text-[var(--color-subtle-text)] hover:text-primary transition-colors"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -817,7 +794,10 @@
               <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
           </a>
-          <a href="#" class="text-subtle hover:text-primary transition-colors">
+          <a
+            href="#"
+            class="text-[var(--color-subtle-text)] hover:text-primary transition-colors"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -835,6 +815,27 @@
               />
               <rect width="4" height="12" x="2" y="9" />
               <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="text-[var(--color-subtle-text)] hover:text-primary transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-twitter"
+            >
+              <path
+                d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9s-1.4-.5-2.8-.8c-.2 1.5-1.2 3.1-2.8 3.9c-1.6.8-3.4.8-4.8.4c-1.4-.4-2.8-1.4-3.6-2.8c-.8-1.4-1.2-3.1-1.2-4.6c0-1.5.4-3.1 1.2-4.6c.8-1.4 2.2-2.4 3.6-2.8c1.4-.4 3.2-.4 4.8.4c1.6.8 2.6 2.4 2.8 3.9c1.4.3 2.8.8 2.8.8s-1.7-3.5-3.3-4.9C21.3 6.1 22 4 22 4z"
+              />
             </svg>
           </a>
         </div>
@@ -987,7 +988,7 @@
 
           let startTime = null;
           const duration = 7000; // Slower animation
-          const segmentLength = 300;
+          const segmentLength = 250;
 
           function animate(timestamp) {
             if (!startTime) startTime = timestamp;
