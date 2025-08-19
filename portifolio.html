@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guilherme Barros - Desenvolvedor de Software</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <style>
+      :root {
+        /* Dark Mode (Default) */
+        --color-bg: #050505;
+        --color-text: #eaeaea;
+        --color-glass-bg: rgba(10, 10, 10, 0.5);
+        --color-glass-border: rgba(255, 255, 255, 0.1);
+        --color-primary: #a855f7;
+        --color-primary-darker: #9333ea;
+        --color-primary-lighter: #c084fc;
+        --color-secondary: #d946ef;
+        --color-glow-1: rgba(168, 85, 247, 0.4);
+        --color-glow-2: rgba(168, 85, 247, 0.3);
+        --color-line-bg: rgba(168, 85, 247, 0.1);
+        --dot-bg: #2a2a2a;
+        --color-nav-link: #d1d5db; /* text-gray-300 */
+        --color-nav-icon: #ffffff; /* text-white */
+        --color-subtle-text: #9ca3af; /* text-gray-400 */
+        --color-icon-hover: #ffffff;
+        --color-secondary-btn-bg: #374151; /* gray-700 */
+        --color-secondary-btn-bg-hover: #4b5563; /* gray-600 */
+        --color-secondary-btn-text: #ffffff;
+      }
+
+      .light-mode {
+        /* Light Mode */
+        --color-bg: #f5f5f5;
+        --color-text: #1a1a1a;
+        --color-glass-bg: rgba(255, 255, 255, 0.6);
+        --color-glass-border: rgba(0, 0, 0, 0.1);
+        --color-primary: #8b5cf6;
+        --color-primary-darker: #7c3aed;
+        --color-primary-lighter: #a78bfa;
+        --color-secondary: #c026d3;
+        --color-glow-1: rgba(139, 92, 246, 0.4);
+        --color-glow-2: rgba(139, 92, 246, 0.3);
+        --color-line-bg: rgba(139, 92, 246, 0.15);
+        --dot-bg: #cccccc;
+        --color-nav-link: #4b5563; /* text-gray-600 */
+        --color-nav-icon: #374151; /* text-gray-700 */
+        --color-subtle-text: #6b7280; /* text-gray-500 */
+        --color-icon-hover: #1a1a1a;
+        --color-secondary-btn-bg: #e5e7eb; /* gray-200 */
+        --color-secondary-btn-bg-hover: #d1d5db; /* gray-300 */
+        --color-secondary-btn-text: #1f2937; /* gray-800 */
+      }
+
+      body {
+        position: relative; /* Essencial para o posicionamento do SVG */
+        font-family: "Inter", sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        overflow-x: hidden; /* Previne scroll horizontal */
+        background-image: radial-gradient(
+          circle,
+          var(--dot-bg) 1px,
+          rgba(0, 0, 0, 0) 1px
+        );
+        background-size: 30px 30px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .glass-effect {
+        background: var(--color-glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--color-glass-border);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+      .purple-glow {
+        box-shadow: 0 0 15px var(--color-glow-1), 0 0 30px var(--color-glow-2);
+      }
+      .purple-gradient-text {
+        background: linear-gradient(
+          90deg,
+          var(--color-primary),
+          var(--color-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-visual {
+        background: radial-gradient(
+          circle,
+          var(--color-glow-2) 0%,
+          rgba(10, 10, 10, 0) 70%
+        );
+      }
+      ion-icon {
+        font-size: 48px; /* Equivalent to w-12 h-12 */
+      }
+
+      /* START: Custom utility classes for theming */
+      .text-nav-link {
+        color: var(--color-nav-link);
+      }
+      .text-nav-icon {
+        color: var(--color-nav-icon);
+      }
+      .text-subtle {
+        color: var(--color-subtle-text);
+      }
+      .border-themed {
+        border-color: var(--color-glass-border);
+      }
+      .hover\:text-icon-hover:hover {
+        color: var(--color-icon-hover);
+      }
+
+      .btn-secondary {
+        background-color: var(--color-secondary-btn-bg);
+        color: var(--color-secondary-btn-text);
+      }
+      .btn-secondary:hover {
+        background-color: var(--color-secondary-btn-bg-hover);
+      }
+      /* END: Custom utility classes for theming */
+
+      /* START: Utility classes for colors */
+      .bg-primary {
+        background-color: var(--color-primary);
+      }
+      .hover\:bg-primary-darker:hover {
+        background-color: var(--color-primary-darker);
+      }
+      .text-primary {
+        color: var(--color-primary);
+      }
+      .hover\:text-primary-lighter:hover {
+        color: var(--color-primary-lighter);
+      }
+      .hover\:text-primary:hover {
+        color: var(--color-primary);
+      }
+      .border-primary {
+        border-color: var(--color-primary);
+      }
+      /* END: Utility classes for colors */
+
+      /* Estilos para a linha animada */
+      #animated-line-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* A altura será ajustada via JS */
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .line-path {
+        fill: none;
+        stroke-width: 2px;
+      }
+
+      .line-bg {
+        stroke: var(--color-line-bg);
+      }
+
+      .line-led {
+        stroke: var(--color-primary);
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 6px var(--color-primary))
+          drop-shadow(0 0 12px var(--color-secondary));
+        stroke-dasharray: var(--led-length, 150) var(--path-length, 3000);
+        stroke-dashoffset: var(--path-length, 3000);
+        animation: move-led 15s linear infinite;
+        animation-play-state: paused;
+      }
+
+      .path-desktop,
+      .path-tablet,
+      .path-mobile {
+        display: none;
+      }
+
+      @media (min-width: 1024px) {
+        .path-desktop {
+          display: block;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .path-tablet {
+          display: block;
+        }
+      }
+      @media (max-width: 767px) {
+        .path-mobile {
+          display: block;
+        }
+      }
+
+      @keyframes move-led {
+        to {
+          stroke-dashoffset: calc(-1 * var(--path-length));
+        }
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- SVG da Linha Animada -->
+    <svg id="animated-line-svg" preserveAspectRatio="none">
+      <defs>
+        <path
+          id="desktop-path"
+          class="line-path path-desktop"
+          d="M 50 20 C 250 20, 250 250, 450 250 L 450 550 C 450 750, 150 750, 150 950 L 150 1200 C 150 1400, 550 1400, 550 1600 L 550 1800 C 550 2000, 950 2000, 950 2200 L 950 2500 C 950 2700, 1150 2700, 1150 2900"
+        />
+        <path
+          id="tablet-path"
+          class="line-path path-tablet"
+          d="M 40 20 C 200 20, 200 300, 400 300 L 400 600 C 400 800, 100 800, 100 1000 L 100 1500 C 100 1700, 600 1700, 600 1900 L 600 2800"
+        />
+        <path
+          id="mobile-path"
+          class="line-path path-mobile"
+          d="M 20 20 C 150 20, 150 350, 300 350 L 300 700 C 300 850, 50 850, 50 1000 L 50 1700 C 50 1850, 300 1850, 300 2000 L 300 3000"
+        />
+      </defs>
+      <use href="#desktop-path" class="line-bg path-desktop" />
+      <use href="#tablet-path" class="line-bg path-tablet" />
+      <use href="#mobile-path" class="line-bg path-mobile" />
+      <use href="#desktop-path" class="line-led path-desktop" />
+      <use href="#tablet-path" class="line-led path-tablet" />
+      <use href="#mobile-path" class="line-led path-mobile" />
+    </svg>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center glass-effect rounded-b-2xl"
+      >
+        <a href="#" class="text-2xl font-bold purple-gradient-text">GB.</a>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="#projects"
+            class="text-nav-link hover:text-primary transition-colors"
+            >Projetos</a
+          >
+          <a
+            href="#skills"
+            class="text-nav-link hover:text-primary transition-colors"
+            >Habilidades</a
+          >
+          <a
+            href="#contact"
+            class="bg-primary hover:bg-primary-darker text-white font-semibold px-5 py-2 rounded-lg transition-transform hover:scale-105"
+            >Contato</a
+          >
+          <!-- Theme Toggle Button -->
+          <button
+            id="theme-toggle"
+            class="text-nav-link hover:text-primary transition-colors"
+          >
+            <svg
+              id="theme-icon-sun"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-sun hidden"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+            <svg
+              id="theme-icon-moon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-moon"
+            >
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+          </button>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden text-nav-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </nav>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden glass-effect mx-4 rounded-2xl mt-2"
+      >
+        <a
+          href="#projects"
+          class="block text-nav-link hover:text-primary transition-colors p-4"
+          >Projetos</a
+        >
+        <a
+          href="#skills"
+          class="block text-nav-link hover:text-primary transition-colors p-4"
+          >Habilidades</a
+        >
+        <a
+          href="#about"
+          class="block text-nav-link hover:text-primary transition-colors p-4"
+          >Sobre Mim</a
+        >
+        <a
+          href="#contact"
+          class="block text-nav-link hover:text-primary transition-colors p-4"
+          >Contato</a
+        >
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-32">
+      <!-- Hero Section -->
+      <section class="py-10">
+        <div class="glass-effect rounded-3xl p-8 relative overflow-hidden">
+          <div class="grid md:grid-cols-2 gap-4 lg:gap-8 items-center">
+            <div class="text-center md:text-left z-10">
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5">
+                Olá, meu nome é
+                <span class="purple-gradient-text">Guilherme Barros</span>
+              </h1>
+              <p
+                class="text-lg md:text-xl text-subtle max-w-xl mx-auto md:mx-0 mb-8"
+              >
+                Desenvolvedor de Software apaixonado por criar soluções
+                inovadoras e eficientes. Transformando ideias complexas em
+                realidade digital.
+              </p>
+              <div class="flex justify-center md:justify-start gap-4">
+                <a
+                  href="#projects"
+                  class="bg-primary hover:bg-primary-darker text-white font-bold py-3 px-8 rounded-lg transition-transform hover:scale-105"
+                  >Meus Projetos</a
+                >
+                <a
+                  href="#contact"
+                  class="btn-secondary font-bold py-3 px-8 rounded-lg transition-transform hover:scale-105 transition-colors"
+                  >Fale Comigo</a
+                >
+              </div>
+            </div>
+            <div class="hidden md:block"></div>
+          </div>
+
+          <div
+            class="hidden md:block absolute top-0 right-0 h-full w-1/2 lg:w-2/5"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent"
+            ></div>
+            <img
+              src="assets/preto e branco.png"
+              alt="Foto do Guilherme Barros"
+              class="w-full h-full object-cover"
+              style="clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%)"
+              onerror="this.onerror=null;this.src='https://placehold.co/400x500/1a1a1a/eaeaea?text=GB';"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Technologies Section -->
+      <section class="py-16">
+        <h2
+          class="text-center text-sm font-semibold text-subtle uppercase tracking-wider mb-12"
+        >
+          Tecnologias que domino
+        </h2>
+        <div class="flex flex-wrap justify-center items-start gap-12 md:gap-16">
+          <div
+            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+          >
+            <ion-icon name="logo-javascript"></ion-icon>
+            <p class="font-medium">JavaScript</p>
+          </div>
+          <div
+            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+          >
+            <ion-icon name="logo-react"></ion-icon>
+            <p class="font-medium">React</p>
+          </div>
+          <div
+            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+          >
+            <ion-icon name="logo-nodejs"></ion-icon>
+            <p class="font-medium">Node.js</p>
+          </div>
+          <div
+            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+          >
+            <ion-icon name="logo-python"></ion-icon>
+            <p class="font-medium">Python</p>
+          </div>
+          <div
+            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+          >
+            <svg
+              class="w-12 h-12"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 128 128"
+            >
+              <title>Tailwind CSS</title>
+              <path
+                d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="font-medium leading-tight">Tailwind<br />CSS</p>
+          </div>
+          <div
+            class="flex flex-col items-center gap-2 w-24 text-center text-subtle transition-colors duration-300 hover:text-primary cursor-default"
+          >
+            <ion-icon name="logo-figma"></ion-icon>
+            <p class="font-medium">Figma</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-20">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-2">
+            Meus <span class="purple-gradient-text">Projetos</span>
+          </h2>
+          <p class="text-subtle">
+            Uma seleção de projetos que demonstram minhas habilidades.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card 1 -->
+          <div
+            class="glass-effect rounded-2xl p-6 flex flex-col justify-between transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <div>
+              <img
+                src="https://placehold.co/600x400/1a1a1a/a855f7?text=Projeto+1"
+                alt="Imagem do Projeto 1"
+                class="rounded-lg mb-4 w-full h-48 object-cover"
+              />
+              <h3 class="text-xl font-bold mb-2">Nome do Projeto 1</h3>
+              <p class="text-subtle text-sm mb-4">
+                Breve descrição do projeto, as tecnologias utilizadas e o
+                objetivo principal. Mantenha-o conciso e informativo.
+              </p>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+              <a
+                href="#"
+                class="text-primary hover:text-primary-lighter font-semibold text-sm"
+                >Ver Demo →</a
+              >
+              <a
+                href="#"
+                class="text-subtle hover:text-icon-hover transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-github"
+                >
+                  <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                  />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Project Card 2 -->
+          <div
+            class="glass-effect rounded-2xl p-6 flex flex-col justify-between transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <div>
+              <img
+                src="https://placehold.co/600x400/1a1a1a/d946ef?text=Projeto+2"
+                alt="Imagem do Projeto 2"
+                class="rounded-lg mb-4 w-full h-48 object-cover"
+              />
+              <h3 class="text-xl font-bold mb-2">Nome do Projeto 2</h3>
+              <p class="text-subtle text-sm mb-4">
+                Breve descrição do projeto, as tecnologias utilizadas e o
+                objetivo principal. Mantenha-o conciso e informativo.
+              </p>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+              <a
+                href="#"
+                class="text-primary hover:text-primary-lighter font-semibold text-sm"
+                >Ver Demo →</a
+              >
+              <a
+                href="#"
+                class="text-subtle hover:text-icon-hover transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-github"
+                >
+                  <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                  />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Project Card 3 -->
+          <div
+            class="glass-effect rounded-2xl p-6 flex flex-col justify-between transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <div>
+              <img
+                src="https://placehold.co/600x400/1a1a1a/a855f7?text=Projeto+3"
+                alt="Imagem do Projeto 3"
+                class="rounded-lg mb-4 w-full h-48 object-cover"
+              />
+              <h3 class="text-xl font-bold mb-2">Nome do Projeto 3</h3>
+              <p class="text-subtle text-sm mb-4">
+                Breve descrição do projeto, as tecnologias utilizadas e o
+                objetivo principal. Mantenha-o conciso e informativo.
+              </p>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+              <a
+                href="#"
+                class="text-primary hover:text-primary-lighter font-semibold text-sm"
+                >Ver Demo →</a
+              >
+              <a
+                href="#"
+                class="text-subtle hover:text-icon-hover transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-github"
+                >
+                  <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                  />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-20">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-2">
+            Minhas <span class="purple-gradient-text">Habilidades</span>
+          </h2>
+          <p class="text-subtle">
+            As ferramentas e tecnologias que utilizo para construir minhas
+            soluções.
+          </p>
+        </div>
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center"
+        >
+          <!-- Skill 1 -->
+          <div
+            class="glass-effect rounded-2xl p-6 transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-braces mx-auto text-primary mb-4"
+            >
+              <path
+                d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"
+              />
+              <path
+                d="M16 21h1a2 2 0 0 0 2-2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"
+              />
+            </svg>
+            <h3 class="text-lg font-semibold">Desenvolvimento Front-end</h3>
+          </div>
+          <!-- Skill 2 -->
+          <div
+            class="glass-effect rounded-2xl p-6 transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-server mx-auto text-primary mb-4"
+            >
+              <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+              <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+              <line x1="6" x2="6.01" y1="6" y2="6" />
+              <line x1="6" x2="6.01" y1="18" y2="18" />
+            </svg>
+            <h3 class="text-lg font-semibold">Desenvolvimento Back-end</h3>
+          </div>
+          <!-- Skill 3 -->
+          <div
+            class="glass-effect rounded-2xl p-6 transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-database mx-auto text-primary mb-4"
+            >
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+              <path d="M3 12A9 3 0 0 0 21 12" />
+            </svg>
+            <h3 class="text-lg font-semibold">Bancos de Dados</h3>
+          </div>
+          <!-- Skill 4 -->
+          <div
+            class="glass-effect rounded-2xl p-6 transform hover:-translate-y-2 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-figma mx-auto text-primary mb-4"
+            >
+              <path
+                d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"
+              />
+              <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
+              <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" />
+              <path
+                d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"
+              />
+              <path
+                d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"
+              />
+            </svg>
+            <h3 class="text-lg font-semibold">UI/UX Design</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action / Contact -->
+      <section id="contact" class="py-20 text-center">
+        <div class="glass-effect rounded-3xl p-10 md:p-16 max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Vamos Construir Algo Incrível Juntos
+          </h2>
+          <p class="text-subtle max-w-2xl mx-auto mb-8">
+            Estou sempre aberto a novas oportunidades e colaborações. Se você
+            tem uma ideia ou um projeto em mente, vamos conversar!
+          </p>
+
+          <button class="btn liquid">
+            <span>Entre em Contato</span>
+          </button>
+        </div>
+      </section>
+
+      <style>
+        .btn {
+          position: relative;
+          padding: 1rem 2rem;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--color-primary);
+          background: none;
+          border: 2px solid var(--color-primary);
+          border-radius: 8px;
+          cursor: pointer;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .liquid {
+          background: linear-gradient(var(--color-primary) 0 0) no-repeat
+            calc(200% - var(--p, 0%)) 100% / 200% var(--p, 0.2em);
+          transition: 0.3s var(--t, 0s),
+            background-position 0.3s calc(0.3s - var(--t, 0s));
+        }
+
+        .liquid:hover {
+          --p: 100%;
+          --t: 0.3s;
+          color: var(--color-text);
+        }
+      </style>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-themed mt-20">
+      <div
+        class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+      >
+        <p class="text-subtle mb-4 md:mb-0">
+          &copy; 2024 Guilherme Barros. Todos os direitos reservados.
+        </p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-subtle hover:text-primary transition-colors">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-github"
+            >
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+              />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+          </a>
+          <a href="#" class="text-subtle hover:text-primary transition-colors">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-linkedin"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- THEME TOGGLE SCRIPT ---
+        const themeToggleButton = document.getElementById("theme-toggle");
+        const sunIcon = document.getElementById("theme-icon-sun");
+        const moonIcon = document.getElementById("theme-icon-moon");
+        const body = document.body;
+
+        // Function to apply the saved theme on load
+        const applyTheme = () => {
+          const savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light") {
+            body.classList.add("light-mode");
+            sunIcon.classList.remove("hidden");
+            moonIcon.classList.add("hidden");
+          } else {
+            body.classList.remove("light-mode");
+            sunIcon.classList.add("hidden");
+            moonIcon.classList.remove("hidden");
+          }
+        };
+
+        // Event listener for the toggle button
+        themeToggleButton.addEventListener("click", () => {
+          body.classList.toggle("light-mode");
+          const isLight = body.classList.contains("light-mode");
+          localStorage.setItem("theme", isLight ? "light" : "dark");
+          sunIcon.classList.toggle("hidden", !isLight);
+          moonIcon.classList.toggle("hidden", isLight);
+        });
+
+        // Apply theme when the page loads
+        applyTheme();
+
+        // --- MOBILE MENU SCRIPT ---
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        const mobileMenuLinks = mobileMenu.getElementsByTagName("a");
+        for (let link of mobileMenuLinks) {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
+        }
+
+        // --- SMOOTH SCROLL SCRIPT ---
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(
+              this.getAttribute("href")
+            );
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        // --- ANIMATED LINE SCRIPT ---
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svgContainer = document.getElementById("animated-line-svg");
+        let animationFrameId;
+
+        const paths = {
+          desktop:
+            "M 50 20 C 250 20, 250 250, 450 250 L 450 550 C 450 750, 150 750, 150 950 L 150 1200 C 150 1400, 550 1400, 550 1600 L 550 1800 C 550 2000, 950 2000, 950 2200 L 950 2500 C 950 2700, 1150 2700, 1150 2900",
+          tablet:
+            "M 40 20 C 200 20, 200 300, 400 300 L 400 600 C 400 800, 100 800, 100 1000 L 100 1500 C 100 1700, 600 1700, 600 1900 L 600 2800",
+          mobile:
+            "M 20 20 C 150 20, 150 350, 300 350 L 300 700 C 300 850, 50 850, 50 1000 L 50 1700 C 50 1850, 300 1850, 300 2000 L 300 3000",
+        };
+
+        function createAndAnimatePath() {
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+          }
+          while (svgContainer.firstChild) {
+            svgContainer.removeChild(svgContainer.firstChild);
+          }
+
+          svgContainer.style.height = `${document.body.scrollHeight}px`;
+
+          let viewBoxWidth = 1200;
+          if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+            viewBoxWidth = 800;
+          } else if (window.innerWidth < 768) {
+            viewBoxWidth = 400;
+          }
+          svgContainer.setAttribute("viewBox", `0 0 ${viewBoxWidth} 3200`);
+
+          let pathData;
+          if (window.innerWidth >= 1024) pathData = paths.desktop;
+          else if (window.innerWidth >= 768) pathData = paths.tablet;
+          else pathData = paths.mobile;
+
+          const bgPath = document.createElementNS(svgNS, "path");
+          bgPath.setAttribute("d", pathData);
+          bgPath.setAttribute("stroke", "var(--color-line-bg)");
+          bgPath.setAttribute("stroke-width", "2");
+          bgPath.setAttribute("fill", "none");
+          svgContainer.appendChild(bgPath);
+
+          const ledPath = document.createElementNS(svgNS, "path");
+          ledPath.setAttribute("d", pathData);
+          ledPath.setAttribute("stroke", "var(--color-primary)");
+          ledPath.setAttribute("stroke-width", "3");
+          ledPath.setAttribute("fill", "none");
+          ledPath.setAttribute("stroke-linecap", "round");
+
+          const defs = document.createElementNS(svgNS, "defs");
+          const filter = document.createElementNS(svgNS, "filter");
+          filter.id = "glow";
+          const feGaussianBlur = document.createElementNS(
+            svgNS,
+            "feGaussianBlur"
+          );
+          feGaussianBlur.setAttribute("stdDeviation", "5");
+          feGaussianBlur.setAttribute("result", "coloredBlur");
+          filter.appendChild(feGaussianBlur);
+          const feMerge = document.createElementNS(svgNS, "feMerge");
+          const feMergeNode1 = document.createElementNS(svgNS, "feMergeNode");
+          feMergeNode1.setAttribute("in", "coloredBlur");
+          const feMergeNode2 = document.createElementNS(svgNS, "feMergeNode");
+          feMergeNode2.setAttribute("in", "SourceGraphic");
+          feMerge.appendChild(feMergeNode1);
+          feMerge.appendChild(feMergeNode2);
+          filter.appendChild(feMerge);
+          defs.appendChild(filter);
+          svgContainer.appendChild(defs);
+          ledPath.style.filter = "url(#glow)";
+          svgContainer.appendChild(ledPath);
+
+          const totalLength = bgPath.getTotalLength();
+          if (totalLength === 0) {
+            setTimeout(createAndAnimatePath, 100);
+            return;
+          }
+
+          let startTime = null;
+          const duration = 7000; // Slower animation
+          const segmentLength = 300;
+
+          function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = (elapsed / duration) % 5;
+
+            ledPath.setAttribute(
+              "stroke-dasharray",
+              `${segmentLength} ${totalLength}`
+            );
+
+            const offset = totalLength - totalLength * progress;
+            ledPath.setAttribute("stroke-dashoffset", offset);
+
+            animationFrameId = requestAnimationFrame(animate);
+          }
+
+          animationFrameId = requestAnimationFrame(animate);
+        }
+
+        let resizeTimeout;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(createAndAnimatePath, 250);
+        });
+
+        // Initial call
+        setTimeout(createAndAnimatePath, 100);
+      });
+    </script>
+  </body>
+</html>
