@@ -953,7 +953,7 @@
           const ledPath = document.createElementNS(svgNS, "path");
           ledPath.setAttribute("d", pathData);
           ledPath.setAttribute("stroke", "var(--color-primary)");
-          ledPath.setAttribute("stroke-width", "3");
+          ledPath.setAttribute("stroke-width", "5");
           ledPath.setAttribute("fill", "none");
           ledPath.setAttribute("stroke-linecap", "round");
 
@@ -987,8 +987,8 @@
           }
 
           let startTime = null;
-          const duration = 7000; // Slower animation
-          const segmentLength = 250;
+          const duration = 5000; // Slower animation
+          const segmentLength = 800;
 
           function animate(timestamp) {
             if (!startTime) startTime = timestamp;
