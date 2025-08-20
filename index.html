@@ -829,27 +829,6 @@
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
-          <a
-            href="#"
-            class="text-[var(--color-subtle-text)] hover:text-primary transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-twitter"
-            >
-              <path
-                d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9s-1.4-.5-2.8-.8c-.2 1.5-1.2 3.1-2.8 3.9c-1.6.8-3.4.8-4.8.4c-1.4-.4-2.8-1.4-3.6-2.8c-.8-1.4-1.2-3.1-1.2-4.6c0-1.5.4-3.1 1.2-4.6c.8-1.4 2.2-2.4 3.6-2.8c1.4-.4 3.2-.4 4.8.4c1.6.8 2.6 2.4 2.8 3.9c1.4.3 2.8.8 2.8.8s-1.7-3.5-3.3-4.9C21.3 6.1 22 4 22 4z"
-              />
-            </svg>
-          </a>
         </div>
       </div>
     </footer>
@@ -965,7 +944,7 @@
           const ledPath = document.createElementNS(svgNS, "path");
           ledPath.setAttribute("d", pathData);
           ledPath.setAttribute("stroke", "var(--color-primary)");
-          ledPath.setAttribute("stroke-width", "3");
+          ledPath.setAttribute("stroke-width", "6"); // tamanho da linha (grossura)
           ledPath.setAttribute("fill", "none");
           ledPath.setAttribute("stroke-linecap", "round");
 
@@ -999,13 +978,13 @@
           }
 
           let startTime = null;
-          const duration = 15000; // Slower animation
-          const segmentLength = 150;
+          const duration = 6000; // 1000 = 1 segundo
+          const segmentLength = 500; // tamanho do segmento da linha (qunato maior, mais cumprido)
 
           function animate(timestamp) {
             if (!startTime) startTime = timestamp;
             const elapsed = timestamp - startTime;
-            const progress = (elapsed / duration) % 1;
+            const progress = (elapsed / duration) % 5;
 
             ledPath.setAttribute(
               "stroke-dasharray",
